@@ -40,11 +40,17 @@ while game_is_on:
     # Detect when ball goes out of right screen
     if ball.xcor() > 380:
         scoreboard.l_point()
+        if scoreboard.l_score >= 5:
+            game_is_on = False
+            scoreboard.game_over()
         ball.reset_position()
 
     # Detect when ball goes out of left screen
     if ball.xcor() < -380:
         scoreboard.r_point()
+        if scoreboard.r_score >= 5:
+            game_is_on = False
+            scoreboard.game_over()
         ball.reset_position()
 
 screen.exitonclick()
